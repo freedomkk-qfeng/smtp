@@ -13,7 +13,7 @@ import (
 
 func main() {
 	//s := smtp.New("smtp.exmail.qq.com:25", "notify@a.com", "password")
-	s := smtp.New("smtp.exmail.qq.com:25", "notify@a.com", "password",false,false,false)
+	s := smtp.NewSMTP("smtp.exmail.qq.com:25", "notify@a.com", "password",false,false,false)
 	log.Println(s.SendMail("notify@a.com", "ulric@b.com;rain@c.com", "这是subject", "这是body,<font color=red>red</font>"))
 }
 ```
