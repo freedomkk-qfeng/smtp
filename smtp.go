@@ -174,14 +174,15 @@ func sendMailByTLS(addr string, a smtp.Auth, from string, to []string, msg []byt
 	}
 
 	conn, err := tls.Dial("tcp", addr, tlsconfig)
+
 	if err != nil {
 		return err
 	}
-
 	c, err := smtp.NewClient(conn, hp[0])
 	if err != nil {
 		return err
 	}
+	defer c.Close()
 	if a != nil {
 		if err = c.Auth(a); err != nil {
 			return err

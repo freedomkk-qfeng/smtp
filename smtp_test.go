@@ -32,6 +32,6 @@ func Test_SendMailAnonymous(t *testing.T) {
 	from := "notify@localhost"
 	tls := false
 	anonymous := true
-	s := NewSMTP(address, from, "", tls, anonymous, SkipVerify)
+	s := NewSMTP(address, "", "", tls, anonymous, SkipVerify)
 	t.Log(s.SendMail(from, tos, subject, body))
 }
